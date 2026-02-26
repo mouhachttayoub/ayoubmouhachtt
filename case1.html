@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Log: eGrow SaaS | Ayoub Mouhachtt</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@100;400;700&display=swap');
+        @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+        :root { --bg: #050505; --text-main: #E5E5E5; --text-dim: #737373; --acid: #D4FF00; --acid-dim: rgba(212, 255, 0, 0.1); --danger: #FF3333; --border: rgba(255, 255, 255, 0.08); --ease: cubic-bezier(0.19, 1, 0.22, 1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+        ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; } ::-webkit-scrollbar-thumb:hover { background: var(--acid); }
+        html { scroll-behavior: smooth; background: var(--bg); }
+        body { background-color: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; overflow-y: auto; -webkit-font-smoothing: antialiased; }
+        ::selection { background: var(--acid); color: var(--bg); }
+        .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); }
+        .blueprint-grid { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; pointer-events: none; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 4vw 4vw; mask-image: radial-gradient(circle at center, black 30%, transparent 90%); -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 90%); }
+        #noise { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99989; opacity: 0.06; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        #scanlines { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%); background-size: 100% 4px; z-index: 99990; pointer-events: none; opacity: 0.4; }
+        #smooth-wrapper { width: 100%; position: fixed; top: 0; left: 0; z-index: 2; overflow: hidden; will-change: transform; }
+        #cursor { position: fixed; top: 0; left: 0; width: 20px; height: 20px; background: var(--text-main); border-radius: 50%; pointer-events: none; z-index: 999999; transform: translate(-50%, -50%); mix-blend-mode: difference; transition: width 0.3s var(--ease), height 0.3s var(--ease); will-change: transform, width, height; }
+        .cursor-active #cursor { width: 80px; height: 80px; background: var(--acid); mix-blend-mode: normal; opacity: 0.8; filter: blur(5px); }
+        #transition-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #050505; z-index: 9999998; transform: translateY(0); transition: transform 0.8s var(--ease); display: flex; align-items: center; justify-content: center; pointer-events: all; border-bottom: 1px solid var(--acid); }
+        #transition-overlay.hidden { transform: translateY(-100%); pointer-events: none; }
+        .t-text { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; color: var(--acid); opacity: 1; transition: opacity 0.3s; letter-spacing: 0.1em;}
+        #transition-overlay.hidden .t-text { opacity: 0; transition-delay: 0s; }
+        #scroll-progress { position: fixed; top: 0; left: 0; width: 3px; height: 0%; background: var(--acid); z-index: 99999; box-shadow: 0 0 10px var(--acid); transition: height 0.1s linear; }
+        .nav-bar { padding: 3rem 5vw; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 100; border-bottom: 1px solid var(--border); background: rgba(5,5,5,0.8); backdrop-filter: blur(20px); }
+        .nav-link { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text-dim); text-decoration: none; text-transform: uppercase; transition: color 0.3s, transform 0.3s; display: flex; align-items: center; gap: 15px; font-weight: 600; letter-spacing: 0.1em; }
+        .nav-link:hover { color: var(--acid); transform: translateX(-5px); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 10vh 5vw; position: relative; z-index: 10; }
+        .reveal-node { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+        .reveal-node.is-inview { opacity: 1; transform: translateY(0); }
+        .log-title { font-size: clamp(3rem, 6vw, 6rem); font-weight: 200; line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 3rem; color: var(--text-main); }
+        .telemetry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-bottom: 5rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        .t-card { background: rgba(10,10,12,0.8); padding: 3rem 2rem; backdrop-filter: blur(10px); }
+        .t-data { font-family: 'JetBrains Mono', monospace; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 200; margin-bottom: 0.5rem; color: var(--acid); display: flex; align-items: flex-end; gap: 5px; }
+        .t-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+        .chart-container { background: #0A0A0A; border: 1px solid var(--border); border-radius: 16px; padding: 4rem; margin-bottom: 6rem; position: relative; overflow: hidden; box-shadow: inset 0 2px 0 rgba(255,255,255,0.05), 0 30px 60px rgba(0,0,0,0.8); }
+        .chart-header { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .chart-legend { display: flex; gap: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+        .legend-mrr { color: var(--acid); display: flex; align-items: center; gap: 8px; } .legend-mrr::before { content:''; width: 12px; height: 2px; background: var(--acid); }
+        .legend-cac { color: var(--text-dim); display: flex; align-items: center; gap: 8px; } .legend-cac::before { content:''; width: 12px; height: 2px; background: var(--text-dim); }
+        .svg-chart { width: 100%; height: 300px; overflow: visible; }
+        .grid-line { stroke: var(--border); stroke-width: 1; stroke-dasharray: 4 4; }
+        .chart-path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        .path-mrr { stroke: var(--acid); stroke-width: 4; stroke-dasharray: 2000; stroke-dashoffset: 2000; transition: stroke-dashoffset 2.5s var(--ease); }
+        .path-cac { stroke: var(--text-dim); stroke-width: 2; stroke-dasharray: 2000; stroke-dashoffset: 2000; transition: stroke-dashoffset 2.5s var(--ease) 0.5s; }
+        .is-inview .path-mrr, .is-inview .path-cac { stroke-dashoffset: 0; }
+        .timeline { border-left: 1px solid var(--border); padding-left: 3rem; margin-left: 1rem; position: relative; }
+        .phase-block { margin-bottom: 6rem; position: relative; }
+        .phase-block::before { content: ''; position: absolute; left: -3.5rem; top: 0; width: 1rem; height: 1rem; background: var(--bg); border: 2px solid var(--acid); border-radius: 50%; box-shadow: 0 0 10px var(--acid-dim); }
+        .phase-number { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--acid); margin-bottom: 1rem; display: block; letter-spacing: 0.15em; }
+        .phase-title { font-size: 2.2rem; font-weight: 300; margin-bottom: 1.5rem; color: var(--text-main); line-height: 1.2; letter-spacing: -0.02em; }
+        .phase-text { font-size: 1.15rem; color: #A0A0AB; line-height: 1.8; margin-bottom: 1.5rem; font-weight: 300; max-width: 750px; }
+        .log-quote { border-left: 2px solid var(--acid); padding-left: 2rem; margin: 3rem 0; font-style: italic; color: var(--text-main); font-size: 1.4rem; font-weight: 300; line-height: 1.5; background: linear-gradient(90deg, var(--acid-dim), transparent); padding: 1.5rem 0 1.5rem 2rem; }
+        @media (max-width: 768px) { .telemetry-grid { grid-template-columns: 1fr; } .chart-container { padding: 2rem 1rem; } .timeline { padding-left: 1.5rem; margin-left: 0.5rem; } .phase-block::before { left: -2rem; width: 0.8rem; height: 0.8rem; } }
+    </style>
+</head>
+<body>
+    <div class="blueprint-grid"></div>
+    <div id="transition-overlay" class="active"><div class="t-text">> DECRYPTING LOG: EGROW SAAS...</div></div>
+    <div id="scroll-progress"></div>
+    <div id="noise"></div>
+    <div id="scanlines"></div>
+    <div id="cursor"></div>
+
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-link interact-element transition-link"><span>←</span> Return to Hub</a>
+        <span class="mono">FILE // EGROW_SAAS</span>
+    </nav>
+
+    <div id="smooth-wrapper">
+        <div class="container">
+            <div class="reveal-node">
+                <div class="mono" style="margin-bottom: 2rem; color: var(--acid);">Operation Zero-Gravity // SaaS Escalation</div>
+                <h1 class="log-title">Architecting $10,000 MRR from a market resistant to SaaS.</h1>
+            </div>
+
+            <div class="telemetry-grid reveal-node">
+                <div class="t-card interact-element">
+                    <div class="t-label" style="margin-bottom: 1rem;">Revenue Velocity</div>
+                    <div class="t-data"><span style="font-size: 1.5rem; margin-bottom: 5px;">$</span><span class="counter" data-target="10000">0</span></div>
+                </div>
+                <div class="t-card interact-element">
+                    <div class="t-label" style="margin-bottom: 1rem;">Market Geography</div>
+                    <div class="t-data" style="font-size: 1.8rem; letter-spacing: 0; padding-bottom: 5px;">Morocco / MENA</div>
+                </div>
+                <div class="t-card interact-element">
+                    <div class="t-label" style="margin-bottom: 1rem;">Asset Class</div>
+                    <div class="t-data" style="font-size: 1.8rem; letter-spacing: 0; padding-bottom: 5px;">B2B Management</div>
+                </div>
+            </div>
+
+            <div class="chart-container reveal-node interact-element">
+                <div class="chart-header">
+                    <div class="mono" style="color: var(--text-main);">TELEMETRY VISUALIZATION // THE INFLECTION POINT</div>
+                    <div class="chart-legend">
+                        <div class="legend-mrr">MRR Growth</div>
+                        <div class="legend-cac">Churn / Friction</div>
+                    </div>
+                </div>
+                <svg class="svg-chart" viewBox="0 0 1000 300" preserveAspectRatio="none">
+                    <line x1="0" y1="250" x2="1000" y2="250" class="grid-line" />
+                    <line x1="0" y1="150" x2="1000" y2="150" class="grid-line" />
+                    <line x1="0" y1="50" x2="1000" y2="50" class="grid-line" />
+                    <text x="0" y="280" fill="var(--text-dim)" font-family="monospace" font-size="12">Education</text>
+                    <text x="333" y="280" fill="var(--text-dim)" font-family="monospace" font-size="12">Pivot</text>
+                    <text x="666" y="280" fill="var(--text-dim)" font-family="monospace" font-size="12">WhatsApp Integration</text>
+                    <text x="950" y="280" fill="var(--text-dim)" font-family="monospace" font-size="12">Scale</text>
+                    <path class="chart-path path-cac" d="M 0,50 C 300,50 400,200 1000,220" />
+                    <path class="chart-path path-mrr" d="M 0,250 C 400,250 500,50 1000,30" />
+                    <circle cx="1000" cy="30" r="6" fill="var(--acid)" />
+                    <circle cx="1000" cy="220" r="4" fill="var(--text-dim)" />
+                </svg>
+            </div>
+
+            <div class="timeline">
+                <div class="phase-block reveal-node">
+                    <span class="phase-number">PHASE 01 // THE MARKET BOTTLENECK</span>
+                    <h2 class="phase-title">Combating the "Google Sheets" Mindset.</h2>
+                    <p class="phase-text">eGrow is an elite management platform built 100% for e-commerce. The problem? We launched in the Moroccan market, where founders were historically opposed to paying for SaaS infrastructure. They ran their businesses on fragmented, free tools like Google Sheets. The bottleneck wasn't the software; it was the market's psychological maturity.</p>
+                    <p class="phase-text">Before burning ad spend on direct response, I engineered a massive market-education matrix. I analyzed our exact ICP and realized they lived on YouTube (for deep learning) and Instagram (to follow industry gurus). We blanketed these platforms with high-value content, teaching them a core truth: <strong>You cannot scale to millions manually. You need a system.</strong></p>
+                </div>
+                
+                <div class="log-quote reveal-node interact-element">
+                    "When we launched the MVP with a 7-day free trial, adoption was high, but conversion was zero. I stopped running ads and started calling them on the phone."
+                </div>
+
+                <div class="phase-block reveal-node">
+                    <span class="phase-number">PHASE 02 // THE PIVOT & POSITIONING</span>
+                    <h2 class="phase-title">From "Utility" to "Enterprise Engine".</h2>
+                    <p class="phase-text">Direct founder-to-founder calls revealed the friction: eGrow was perceived as just another 'normal tool'. We had to fundamentally change the branding and perceived value. We repositioned eGrow from a 'helpful tool for beginners' into an exclusive, enterprise-grade engine for <em>successful</em> e-commerce operators.</p>
+                    <p class="phase-text">By shifting the narrative, we stopped trying to convince people to pay for software, and started selling them the operational time and scalability they were losing without it.</p>
+                </div>
+
+                <div class="phase-block reveal-node">
+                    <span class="phase-number">PHASE 03 // THE FEATURE ARBITRAGE</span>
+                    <h2 class="phase-title">Unlocking Liquidity via WhatsApp Automation.</h2>
+                    <p class="phase-text">We didn't just build features; we built what the market explicitly demanded. Moroccan e-commerce runs on WhatsApp for order confirmations and follow-ups. I directed the dev team to build a ruthless, native WhatsApp automation system directly into eGrow.</p>
+                    <p class="phase-text">This was the inflection point. We combined this with a friction-less onboarding funnel that integrated users immediately. The moment they saw the automation fire, the perceived value skyrocketed. We bridged the gap between education and execution, scaling eGrow to $10,000 in monthly recurring revenue.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 10rem; padding-top: 5rem; border-top: 1px solid var(--border); text-align: center;" class="reveal-node">
+                <a href="index.html" class="nav-link interact-element transition-link" style="justify-content: center; font-size: 1.2rem; color: var(--text-main);">← Return to Main Terminal</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scrollWrapper = document.getElementById('smooth-wrapper');
+        const scrollProgress = document.getElementById('scroll-progress');
+        let currentScroll = 0, targetScroll = 0, ease = 0.08;
+
+        function setBodyHeight() { document.body.style.height = `${scrollWrapper.getBoundingClientRect().height}px`; }
+        window.addEventListener('resize', setBodyHeight);
+        window.addEventListener('scroll', () => { targetScroll = window.scrollY; });
+
+        function smoothScroll() {
+            currentScroll += (targetScroll - currentScroll) * ease;
+            scrollWrapper.style.transform = `translate3d(0, -${Math.round(currentScroll * 100) / 100}px, 0)`;
+            let scrollTotal = document.body.scrollHeight - window.innerHeight;
+            if(scrollTotal > 0) scrollProgress.style.height = `${(currentScroll / scrollTotal) * 100}%`;
+            requestAnimationFrame(smoothScroll);
+        }
+        smoothScroll();
+
+        const cursor = document.getElementById('cursor');
+        window.addEventListener('mousemove', e => { cursor.style.left = `${e.clientX}px`; cursor.style.top = `${e.clientY}px`; });
+        document.querySelectorAll('.interact-element, a').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
+        });
+
+        const transitionOverlay = document.getElementById('transition-overlay');
+        window.addEventListener('load', () => { setTimeout(() => { transitionOverlay.classList.add('hidden'); setBodyHeight(); }, 500); });
+
+        document.querySelectorAll('.transition-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetUrl = this.getAttribute('href');
+                transitionOverlay.classList.remove('hidden');
+                setTimeout(() => { window.location.href = targetUrl; }, 800);
+            });
+        });
+
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-inview');
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        if(counter.classList.contains('counted')) return;
+                        counter.classList.add('counted');
+                        const target = parseFloat(counter.getAttribute('data-target'));
+                        const start = 0; let startTimestamp = null;
+                        const step = (timestamp) => {
+                            if (!startTimestamp) startTimestamp = timestamp;
+                            const progress = Math.min((timestamp - startTimestamp) / 2000, 1);
+                            counter.innerText = Math.floor(start + (target - start) * (1 - Math.pow(1 - progress, 3))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                            if (progress < 1) window.requestAnimationFrame(step);
+                        };
+                        window.requestAnimationFrame(step);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal-node').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
