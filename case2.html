@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: 1M Users in 120 Days | Ayoub Mouhachtt</title>
+<meta name="description" content="How Ayoub Mouhachtt drove a mobile app from 0 to 1M active users in 120 days — Meta Ads, Google UAC, Apple Search Ads, and a creative testing system that hit positive ROAS by week 6.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&family=JetBrains+Mono:wght@100;300;400;700&display=swap" rel="stylesheet">
+<style>
+@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
+:root{
+  --bg:#030303;--surface:#0C0C0C;--surface2:#131313;
+  --text:#EBEBEB;--dim:#555;--acid:#D4FF00;
+  --purple:#7C3AED;--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.11);
+  --ease:cubic-bezier(.19,1,.22,1);--sharp:cubic-bezier(.77,0,.175,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+@media(pointer:fine){*{cursor:none}#cursor,#cring{display:block}}
+html{background:var(--bg);scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--acid);color:#000}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:rgba(212,255,0,.35);border-radius:3px}
+#grain{position:fixed;inset:0;z-index:99997;pointer-events:none;opacity:.032;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E") repeat;background-size:250px 250px;animation:grain .7s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,-3%)}50%{transform:translate(3%,-2%)}75%{transform:translate(-2%,4%)}}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(120px)}
+.o1{width:55vw;height:55vw;background:radial-gradient(circle,rgba(124,58,237,.06),transparent 60%);top:-15vw;right:-10vw;animation:od 24s ease-in-out infinite}
+.o2{width:50vw;height:50vw;background:radial-gradient(circle,rgba(212,255,0,.05),transparent 60%);bottom:-10vw;left:-10vw;animation:od 30s ease-in-out infinite reverse}
+@keyframes od{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3%,5%) scale(1.07)}}
+#cursor,#cring{display:none;position:fixed;border-radius:50%;pointer-events:none;z-index:999999;transform:translate(-50%,-50%)}
+#cursor{top:0;left:0;width:7px;height:7px;background:var(--text);mix-blend-mode:difference}
+#cring{top:0;left:0;width:32px;height:32px;border:1.5px solid rgba(255,255,255,.5);mix-blend-mode:difference;transition:left .12s ease,top .12s ease,width .4s var(--ease),height .4s var(--ease),border-color .4s}
+.ch #cring{width:52px;height:52px;border-color:rgba(212,255,0,.8)}
+#spbar{position:fixed;top:0;left:0;width:3px;height:0%;background:linear-gradient(to bottom,var(--acid),rgba(212,255,0,.3));z-index:99999;box-shadow:0 0 10px var(--acid)}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:9990;padding:1.5rem 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(3,3,3,.85);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.backbtn{display:inline-flex;align-items:center;gap:.6rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--dim);text-transform:uppercase;letter-spacing:.14em;transition:color .3s}
+.backbtn:hover{color:var(--acid)}
+.backbtn svg{transition:transform .3s var(--ease)}.backbtn:hover svg{transform:translateX(-4px)}
+.toplogo{font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;color:var(--acid)}
+.topcase{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--dim);text-transform:uppercase;letter-spacing:.14em}
+.wrap{max-width:88vw;margin:0 auto;position:relative;z-index:10}
+.rv{opacity:0;transform:translateY(44px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+.cs-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:16vh 0 8vh;position:relative;overflow:hidden}
+.cs-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 45%,transparent);z-index:1;pointer-events:none}
+.hero-bg-num{position:absolute;right:-2vw;top:50%;transform:translateY(-50%);font-family:'JetBrains Mono',monospace;font-size:clamp(10rem,22vw,30rem);font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(124,58,237,.08);line-height:1;pointer-events:none;user-select:none;z-index:0}
+.cs-tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--acid);text-transform:uppercase;letter-spacing:.2em;margin-bottom:1.5rem;display:flex;align-items:center;gap:.7rem;position:relative;z-index:2}
+.cs-tag::before{content:'';width:20px;height:1px;background:var(--acid)}
+.cs-h1{font-size:clamp(2.5rem,6vw,7rem);font-weight:200;line-height:.92;letter-spacing:-.04em;margin-bottom:2rem;position:relative;z-index:2}
+.cs-h1 strong{font-weight:900;color:var(--acid);display:block;font-size:clamp(3.5rem,9vw,12rem);line-height:.85;text-shadow:0 0 80px rgba(212,255,0,.18)}
+.cs-meta{display:flex;gap:2rem;flex-wrap:wrap;position:relative;z-index:2}
+.cs-pill{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:.12em;padding:.3rem .8rem;border:1px solid var(--border);border-radius:100px}
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--surface);margin:5vh 0}
+.stat{padding:2.5rem 2rem;border-right:1px solid var(--border);position:relative;overflow:hidden}
+.stat:last-child{border-right:none}
+.stat::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--acid);transition:width 1.2s var(--ease)}
+.stat.on::after{width:100%}
+.sv{font-family:'JetBrains Mono',monospace;font-size:clamp(1.8rem,3vw,3rem);font-weight:700;color:var(--acid);line-height:1;margin-bottom:.4rem;text-shadow:0 0 30px rgba(212,255,0,.2)}
+.sl{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--dim);text-transform:uppercase;letter-spacing:.12em;line-height:1.5}
+.cs-sec{padding:8vh 0;border-top:1px solid var(--border)}
+.sec-lbl{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--acid);text-transform:uppercase;letter-spacing:.2em;margin-bottom:2rem;display:flex;align-items:center;gap:.7rem}
+.sec-lbl::before{content:'';width:16px;height:1px;background:var(--acid)}
+.sec-h{font-size:clamp(1.6rem,3vw,2.6rem);font-weight:300;line-height:1.2;letter-spacing:-.025em;max-width:700px;margin-bottom:2rem}
+.sec-body{font-size:.98rem;color:var(--dim);line-height:1.85;max-width:760px}
+.sec-body p+p{margin-top:1.2rem}
+.sec-body strong{color:var(--text)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:start}
+.cbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:border-color .3s;margin-bottom:1.2rem}
+.cbox:last-child{margin-bottom:0}
+.cbox:hover{border-color:rgba(212,255,0,.18)}
+.cbox-n{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--acid);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.8rem}
+.cbox-h{font-size:1.05rem;font-weight:500;margin-bottom:.65rem;color:var(--text)}
+.cbox-p{font-size:.85rem;color:var(--dim);line-height:1.65}
+.timeline{margin-top:.5rem;position:relative}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--acid),rgba(212,255,0,.1))}
+.tl-item{padding-left:2.5rem;padding-bottom:3rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-4px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--acid);box-shadow:0 0 12px rgba(212,255,0,.5)}
+.tl-phase{font-family:'JetBrains Mono',monospace;font-size:.57rem;color:var(--acid);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.5rem}
+.tl-h{font-size:1.1rem;font-weight:500;color:var(--text);margin-bottom:.6rem}
+.tl-p{font-size:.88rem;color:var(--dim);line-height:1.7}
+
+/* Creative testing table */
+.ct-table{width:100%;border-collapse:collapse;margin-top:1.5rem}
+.ct-table th{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--dim);text-transform:uppercase;letter-spacing:.12em;text-align:left;padding:.75rem 1rem;border-bottom:1px solid var(--border)}
+.ct-table td{font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:.85rem 1rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.ct-table tr:hover td{background:rgba(255,255,255,.012)}
+.win{color:var(--acid)}.lose{color:var(--dim)}.neutral{color:var(--text)}
+.badge{display:inline-block;padding:.12rem .45rem;border-radius:4px;font-size:.5rem;text-transform:uppercase;letter-spacing:.08em}
+.badge-w{background:rgba(212,255,0,.1);color:var(--acid);border:1px solid rgba(212,255,0,.2)}
+.badge-l{background:rgba(255,255,255,.04);color:var(--dim);border:1px solid var(--border)}
+
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem}
+.rcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:2.5rem 2rem;position:relative;overflow:hidden;transition:border-color .4s,transform .4s var(--ease)}
+.rcard:hover{border-color:rgba(212,255,0,.22);transform:translateY(-4px)}
+.rcard::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(to right,var(--acid),transparent)}
+.rv-big{font-family:'JetBrains Mono',monospace;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;color:var(--acid);line-height:1;margin-bottom:.4rem;text-shadow:0 0 30px rgba(212,255,0,.2)}
+.rl{font-size:.88rem;color:var(--text);margin-bottom:.4rem;font-weight:500}
+.rd{font-size:.82rem;color:var(--dim);line-height:1.6}
+.cta-box{background:var(--surface);border:1px solid rgba(212,255,0,.18);border-radius:22px;padding:5rem;text-align:center;position:relative;overflow:hidden;margin:8vh 0}
+.cta-box::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(212,255,0,.04),transparent 65%);pointer-events:none}
+.cta-h{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;line-height:1.25;max-width:650px;margin:0 auto 1.2rem}
+.cta-p{font-size:.95rem;color:var(--dim);max-width:480px;margin:0 auto 3rem;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:.7rem;padding:1.25rem 4rem;background:var(--acid);color:#000;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;border-radius:100px;transition:all .3s}
+.cta-btn:hover{filter:brightness(1.1);transform:scale(1.03);box-shadow:0 0 50px rgba(212,255,0,.35)}
+.cta-note{margin-top:1.2rem;font-family:'JetBrains Mono',monospace;font-size:.57rem;color:var(--dim);text-transform:uppercase;letter-spacing:.14em}
+.foot{padding:3rem 0;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;margin-top:4rem}
+.fb{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--dim)}
+.fl{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--dim);text-transform:uppercase;letter-spacing:.12em;transition:color .3s}
+.fl:hover{color:var(--acid)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem}
+.chip{padding:.2rem .65rem;border:1px solid var(--border);border-radius:100px;font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:900px){
+  .two-col{grid-template-columns:1fr}
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}.stat:nth-child(3){border-top:1px solid var(--border)}
+  .result-grid{grid-template-columns:1fr}
+  .cta-box{padding:3rem 2rem}
+  .foot{flex-direction:column;gap:1.5rem;align-items:flex-start}
+  .ct-table{font-size:.65rem}
+}
+</style>
+</head>
+<body>
+
+<div id="grain" aria-hidden="true"></div>
+<div class="orb o1" aria-hidden="true"></div>
+<div class="orb o2" aria-hidden="true"></div>
+<div id="spbar" aria-hidden="true"></div>
+<div id="cursor" aria-hidden="true"></div>
+<div id="cring" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a href="index.html" class="backbtn inter">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to Portfolio
+  </a>
+  <div class="toplogo">AM</div>
+  <div class="topcase">Case Log 02 / 03</div>
+</header>
+
+<div class="wrap">
+
+  <section class="cs-hero">
+    <div class="hero-bg-num" aria-hidden="true">1M</div>
+    <div class="cs-tag rv">Case Log 02 // Mobile App Acquisition</div>
+    <h1 class="cs-h1 rv d1">
+      Zero to<br>
+      <strong>1M Users</strong>
+    </h1>
+    <div class="cs-meta rv d2">
+      <span class="cs-pill">120-Day Sprint</span>
+      <span class="cs-pill">Meta Ads</span>
+      <span class="cs-pill">Google UAC</span>
+      <span class="cs-pill">Apple Search Ads</span>
+      <span class="cs-pill">Creative Testing</span>
+      <span class="cs-pill">Mobile Growth</span>
+    </div>
+  </section>
+
+  <div class="stat-strip rv">
+    <div class="stat"><div class="sv">1M+</div><div class="sl">Active Users<br>in 120 Days</div></div>
+    <div class="stat"><div class="sv">Wk 6</div><div class="sl">ROAS Positive<br>Achieved</div></div>
+    <div class="stat"><div class="sv">40+</div><div class="sl">Creative Hooks<br>Tested</div></div>
+    <div class="stat"><div class="sv">20M+</div><div class="sl">Lifetime Installs<br>Portfolio Total</div></div>
+  </div>
+
+  <section class="cs-sec rv">
+    <div class="sec-lbl">Situation // Context</div>
+    <h2 class="sec-h">A mobile app with viral potential — and zero acquisition infrastructure.</h2>
+    <div class="sec-body">
+      <p>The client had a social utility mobile app with strong organic retention signals — DAU/MAU above 0.45 — but no paid acquisition engine. Their previous attempt at Meta Ads had burned $40K over 90 days with a CPI above $6.80 and no clear path to ROAS positive. They brought me in to build the system correctly.</p>
+      <p>The brief: reach 1M active users in 120 days. Hard constraint: ROAS must be demonstrably positive before scaling past $50K/month. <strong>No scaling broken economics.</strong></p>
+      <p>This was a 3-channel operation from day one — Meta Ads for volume, Google UAC for intent-based installs, Apple Search Ads for App Store discovery. But the most critical variable wasn't budget. It was creative.</p>
+    </div>
+  </section>
+
+  <section class="cs-sec">
+    <div class="sec-lbl rv">Diagnosis // Why the Previous Campaign Failed</div>
+    <h2 class="sec-h rv d1">The old campaign was scaling before it was ready.</h2>
+    <div class="two-col rv d2">
+      <div>
+        <div class="cbox">
+          <div class="cbox-n">Problem 01</div>
+          <div class="cbox-h">Single Creative, No Testing System</div>
+          <p class="cbox-p">The previous agency ran 3 ad creatives for 90 days. No rotation, no hook testing, no iteration. Ad fatigue set in by week 3. Frequency climbed, CPM spiked, CPI went to $6.80+ and kept rising.</p>
+        </div>
+        <div class="cbox">
+          <div class="cbox-n">Problem 02</div>
+          <div class="cbox-h">Broad Audience Targeting</div>
+          <p class="cbox-p">Meta campaigns were targeting 18–45, all genders, interest: "social networking." No lookalike architecture, no exclusion of installers who churned within 48 hours. The algorithm was finding the cheapest users, not the most valuable ones.</p>
+        </div>
+        <div class="cbox">
+          <div class="cbox-n">Problem 03</div>
+          <div class="cbox-h">No Attribution Model</div>
+          <p class="cbox-p">iOS attribution was broken post-ATT. They were using last-click in Meta's dashboard only — no SKAdNetwork calibration, no MMP integration, no server-side events. They had no idea which channel or creative was actually driving retained users.</p>
+        </div>
+      </div>
+      <div class="sec-body" style="padding-top:.5rem">
+        <p>The core issue was a <strong>creative testing deficit</strong>. Mobile app growth at scale is a creative operations problem as much as a media buying problem. If you're not testing 8–12 new hooks per week and feeding the algorithm consistent winning signals, your CPI will inflate until the economics collapse.</p>
+        <p>The second issue was attribution. Without knowing <strong>which users were actually retained at day 7 and day 30</strong>, there was no basis for campaign optimization. You can't optimize for LTV if you're measuring installs.</p>
+        <p>I paused all spend on day 2 of the engagement. We spent 10 days on the infrastructure before touching a dollar of the acquisition budget. This is always the right call — and it always surprises clients who want to see "something running."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-sec">
+    <div class="sec-lbl rv">Architecture // The System Built</div>
+    <h2 class="sec-h rv d1">Infrastructure first. Scale second.</h2>
+    <div class="two-col rv d2">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-phase">Phase 01 // Days 1–10</div>
+          <div class="tl-h">Attribution Infrastructure</div>
+          <p class="tl-p">Integrated Adjust as MMP. Built server-side event pipeline feeding 7-day retention and D30 LTV signals back to Meta and Google. Configured SKAdNetwork for iOS. Set campaign optimization targets to D7 retention events — not installs. This alone was the biggest unlock.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-phase">Phase 02 // Days 10–30</div>
+          <div class="tl-h">Creative Testing Engine — 40+ Hooks</div>
+          <p class="tl-p">Built a weekly creative sprint system: 8 new hooks tested per week using a $50/day DCO campaign per hook. Hook formats tested: problem-pain (7 variations), social proof (6), curiosity/transformation (9), UGC testimonial (12), feature demo (8). Kill threshold: CPI &gt;$2.80 or hook rate &lt;25% at 2,000 impressions.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-phase">Phase 03 // Days 30–60</div>
+          <div class="tl-h">Meta Scaling + Google UAC</div>
+          <p class="tl-p">Three winning creatives (CPI $1.40–$1.80, D7 retention 38%+) were identified by day 28. These were moved to scaling campaigns using Meta's Advantage+ with our retained user lookalike as seed audience. Google UAC launched simultaneously targeting in-app event bids for D7 retained users.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-phase">Phase 04 // Days 60–120</div>
+          <div class="tl-h">Apple Search Ads + Retargeting Loop</div>
+          <p class="tl-p">Apple Search Ads activated for App Store search intent capture at $0.80–$1.20 CPI. Meta retargeting campaign reactivated users who installed but hadn't completed onboarding within 72 hours (push notifications had been failing — this closed the loop). Reached 1M actives on day 117.</p>
+        </div>
+      </div>
+      <div>
+        <div class="cbox">
+          <div class="cbox-n">Creative Testing Results</div>
+          <div class="cbox-h">Hook Performance Summary — 40 Tests</div>
+          <table class="ct-table">
+            <thead>
+              <tr>
+                <th>Hook Type</th>
+                <th>Tests</th>
+                <th>Winners</th>
+                <th>Best CPI</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="neutral">UGC Testimonial</td><td class="neutral">12</td><td class="win">3</td><td class="win">$1.42</td><td><span class="badge badge-w">Scaled</span></td></tr>
+              <tr><td class="neutral">Curiosity/Transform</td><td class="neutral">9</td><td class="win">1</td><td class="win">$1.58</td><td><span class="badge badge-w">Scaled</span></td></tr>
+              <tr><td class="neutral">Problem-Pain</td><td class="neutral">7</td><td class="neutral">1</td><td class="win">$1.81</td><td><span class="badge badge-w">Scaled</span></td></tr>
+              <tr><td class="neutral">Social Proof</td><td class="neutral">6</td><td class="lose">0</td><td class="lose">$3.20+</td><td><span class="badge badge-l">Killed</span></td></tr>
+              <tr><td class="neutral">Feature Demo</td><td class="neutral">8</td><td class="lose">0</td><td class="lose">$4.10+</td><td><span class="badge badge-l">Killed</span></td></tr>
+            </tbody>
+          </table>
+          <div class="chips" style="margin-top:1.2rem">
+            <span class="chip">Adjust MMP</span><span class="chip">Meta Advantage+</span><span class="chip">Google UAC</span><span class="chip">Apple Search Ads</span><span class="chip">SKAdNetwork</span><span class="chip">Server-Side Events</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-sec">
+    <div class="sec-lbl rv">Output // Verified Results</div>
+    <h2 class="sec-h rv d1">The numbers at day 120.</h2>
+    <div class="result-grid rv d2">
+      <div class="rcard">
+        <div class="rv-big">1M+</div>
+        <div class="rl">Active Users — Day 117</div>
+        <p class="rd">Hit 1 million active users on day 117 of the 120-day sprint. 3 days ahead of target. 87% of users acquired via the 3 winning creative hooks.</p>
+      </div>
+      <div class="rcard">
+        <div class="rv-big">$1.58</div>
+        <div class="rl">Blended CPI (vs $6.80 prev.)</div>
+        <p class="rd">Blended cost per install dropped 77% from the previous campaign's $6.80. The creative testing system was the primary driver — not audience changes.</p>
+      </div>
+      <div class="rcard">
+        <div class="rv-big">Wk 6</div>
+        <div class="rl">ROAS Positive Achieved</div>
+        <p class="rd">D30 ROAS turned positive at week 6 — exactly on the projection. Revenue from in-app purchases and subscription conversions exceeded acquisition spend by month 2.</p>
+      </div>
+      <div class="rcard">
+        <div class="rv-big">38%</div>
+        <div class="rl">D7 Retention (Winners)</div>
+        <p class="rd">The 3 winning creatives attracted users with D7 retention above 38% — nearly double the industry average of 20%. Audience quality outperformed volume targeting.</p>
+      </div>
+      <div class="rcard">
+        <div class="rv-big">3×</div>
+        <div class="rl">Channel Diversification</div>
+        <p class="rd">Meta (58%), Google UAC (27%), Apple Search Ads (15%). No single-channel dependency. Attribution was clean across all three via the MMP integration.</p>
+      </div>
+      <div class="rcard">
+        <div class="rv-big">20M+</div>
+        <div class="rl">Portfolio Lifetime Installs</div>
+        <p class="rd">This was one of 6 apps in the portfolio I managed. Total lifetime installs across all apps exceeded 20 million using the same creative testing and attribution architecture.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-sec">
+    <div class="sec-lbl rv">Signal // Key Learnings</div>
+    <div class="two-col rv d1">
+      <div>
+        <h2 class="sec-h">Mobile growth is a creative operations problem.</h2>
+        <div class="sec-body">
+          <p>The single biggest insight from this engagement: <strong>80% of mobile app growth variance is explained by creative quality, not audience targeting or bid strategy.</strong> Meta's algorithm is exceptional at finding your users — but only if you give it winning creative signals to optimize toward.</p>
+          <p>The testing system is what matters. Not any single ad. The ability to produce, test, and iterate 8+ hooks per week — and have the attribution infrastructure to know which ones drive retained users, not just cheap installs — is the actual competitive advantage.</p>
+          <p>The second lesson: <strong>optimize for the user you want, not the install you can afford.</strong> Bidding for installs at lowest cost will find the cheapest users. They churn fastest. Bidding for D7 retention events (possible only with MMP + server-side tracking) finds the users worth keeping.</p>
+        </div>
+      </div>
+      <div>
+        <div class="cbox">
+          <div class="cbox-n">The Architecture Principle</div>
+          <div class="cbox-h">"CPI is a vanity metric. D7 retention cost is the real number."</div>
+          <p class="cbox-p">We ran campaigns where the "expensive" creative ($2.10 CPI) outperformed the "cheap" creative ($1.20 CPI) by 3× on D30 ROAS. Buying on CPI alone destroys LTV. The MMP integration that enables D7 optimization is the most valuable infrastructure investment in mobile growth.</p>
+        </div>
+        <div class="cbox">
+          <div class="cbox-n">The Creative Framework</div>
+          <div class="cbox-h">Hook Rate → Hold Rate → CPI → D7 → D30</div>
+          <p class="cbox-p">Every creative is evaluated in sequence. If hook rate (3-second view) is below 25%, kill it — the hook doesn't work. If hold rate (15-second) is below 18%, the narrative collapses. Only creatives that survive both filters get a CPI evaluation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-box rv">
+    <div class="cta-h">Building a mobile app or scaling one?<br>This system works.</div>
+    <p class="cta-p">90-day sprint. Results-based engagement. If ROAS isn't positive and installs aren't scaling, I rebuild the system until they are.</p>
+    <a href="mailto:contact@ayoubmouhachtt.com" class="cta-btn inter">Book a Strategy Call →</a>
+    <div class="cta-note">No retainers · No guesswork · Results-based</div>
+  </div>
+
+  <footer class="foot">
+    <div class="fb">© 2026 Ayoub Mouhachtt · Revenue Architecture</div>
+    <div style="display:flex;gap:2rem">
+      <a href="case1.html" class="fl inter">← Prev Case</a>
+      <a href="index.html" class="fl inter">Portfolio</a>
+      <a href="case3.html" class="fl inter">Next Case →</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const isPtr=window.matchMedia('(pointer:fine)').matches;
+const cur=document.getElementById('cursor');
+const cring=document.getElementById('cring');
+if(isPtr){
+  cur.style.display='block';cring.style.display='block';
+  let cx=0,cy=0,rx=innerWidth/2,ry=innerHeight/2;
+  window.addEventListener('mousemove',e=>{rx=e.clientX;ry=e.clientY;cur.style.left=rx+'px';cur.style.top=ry+'px';},{passive:true});
+  const mc=()=>{cx+=(rx-cx)*.14;cy+=(ry-cy)*.14;cring.style.left=cx+'px';cring.style.top=cy+'px';requestAnimationFrame(mc);};mc();
+  document.querySelectorAll('a,button,.inter').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));});
+}
+const sb=document.getElementById('spbar');
+window.addEventListener('scroll',()=>{const t=document.body.scrollHeight-innerHeight;if(t>0)sb.style.height=(scrollY/t*100)+'%';},{passive:true});
+const seen=new Set();
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting||seen.has(e.target))return;seen.add(e.target);e.target.classList.add('on');});},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const statIO=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');statIO.unobserve(e.target);}});},{threshold:.3});
+document.querySelectorAll('.stat').forEach(s=>statIO.observe(s));
+if(isPtr){window.addEventListener('mousemove',e=>{const xP=e.clientX/innerWidth-.5;const yP=e.clientY/innerHeight-.5;document.querySelectorAll('.orb').forEach((o,i)=>{o.style.transform=`translate(${xP*(i+1)*7}px,${yP*(i+1)*7}px)`;});},{passive:true});}
+</script>
+</body>
+</html>
