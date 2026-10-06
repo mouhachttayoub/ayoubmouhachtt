@@ -3,7 +3,7 @@
  const themeButtons=[...document.querySelectorAll('.theme-toggle')];
  const syncTheme=()=>{const dark=root.dataset.theme==='dark';themeButtons.forEach(b=>{b.setAttribute('aria-pressed',String(dark));const label=dark?b.dataset.lightLabel:b.dataset.darkLabel;b.setAttribute('aria-label',label);b.title=label;});};
  syncTheme();
- themeButtons.forEach(b=>b.addEventListener('click',()=>{const next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;try{localStorage.setItem('ayoub-theme',next);}catch(e){}syncTheme();}));
+ themeButtons.forEach(b=>b.addEventListener('click',()=>{const next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;try{localStorage.setItem('ayoub-theme-v2',next);}catch(e){}syncTheme();}));
  const language=document.getElementById('language-switch');
  if(language)language.addEventListener('change',()=>{window.location.assign(language.value);});
  const menuButton=document.querySelector('.menu-toggle'),menu=document.getElementById('mobile-menu');
