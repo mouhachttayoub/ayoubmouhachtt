@@ -1,17 +1,15 @@
-AYOUB MOUHACHTT — DETAILED PORTFOLIO
+AYOUB MOUHACHTT — COMPLETE PORTFOLIO UPDATE
 
-Upload the full folder contents to the root of ayoubmouhachtt.com. Keep assets, blog, fr and ar alongside index.html. Back up your existing site first.
+Upload the extracted contents to the root of your GitHub Pages repository. Preserve assets/, blog/, fr/ and ar/ as folders. Keep your existing CNAME file. This package does not publish the site automatically.
 
-The older centered hero and detailed homepage have been restored: experience panels, growth problems, fuller project descriptions, service details, client-fit guidance, operating process, deliverables and ten FAQs. The new header, footer, Plans and Blog links, mobile menu, dark mode and three language versions remain.
+This update expands the eGrow, Beloud and Etsy/Shopify case studies in English, French and Arabic. Each includes a visual hero with the original logo, a project brief, a journey map, a work table, a process section, evidence, practical outputs, lessons, a personal photo and related guides. Arabic uses a mirrored reading layout.
 
-48 pages: 16 each in English, French and Arabic. Arabic uses right-to-left layouts. The blog includes ten guides per language; French and Arabic guides are localized adaptations. Language-specific metadata, canonical URLs, hreflang and the multilingual sitemap remain in place.
+All meeting and partnership booking calls to action point to the supplied Google Calendar URL: https://calendar.app.google/idouw39E3vfvkLcy6. Email, WhatsApp and social contact links remain available. There is no embedded calendar or tracking added.
 
-Photography: two supplied candid photos are framed in the About section. The supplied dashboard photographs are unchanged, with layout crops for previews and access to original images. Four screenshots show $109,691.46 / 2,912 orders; $96,732.31 / 2,474 orders; $56,065.64 / 1,403 orders; and $21,254.81 / 507 orders. Captions follow the visible reporting periods. Periods may overlap and figures are not added together. The gallery also appears in the e-commerce case.
+Data integrity: eGrow financial figures remain private. The Beloud visual uses the supplied 1M-user / 120-day milestone without inventing intermediate values. The order-value chart uses baseline index 100 and index 134 to illustrate the supplied 34% uplift. The $200K+ revenue, four-store scope and 34% uplift originate from the supplied portfolio. These are not independent audit findings. Dashboard photos remain unchanged with exact amounts, order counts and displayed periods; overlapping reporting views are not added together. Journey maps illustrate the described approach, not measured funnel conversion rates.
 
-Privacy: eGrow revenue and the internal SaaS financial ratio remain removed. Other existing metrics originate from the supplied portfolio. No anonymous testimonials have been restored.
+Theme: English and light mode remain the default at the root. The latest dark hero/footer repair has been carried into the full site and language homepages. The new case-study surfaces use theme-aware colors and fixed dark text on green, orange and lavender panels.
 
-Validation: all 48 pages passed heading, metadata, JSON-LD, internal link, asset, locale and hreflang checks. Theme, language navigation, menu and proof-gallery logic checks passed. Browser visual rendering was not verified in this environment; review desktop and mobile before upload.
+Validation: all 48 pages passed internal link/asset/anchor, heading, locale, unique ID, booking URL, JSON-LD and privacy checks. All nine expanded case studies include their original logos. New body text and accent-panel color combinations exceed 4.5:1 contrast. Responsive layouts have dedicated tablet and mobile rules. Browser rendering could not be verified in this environment; review desktop and mobile after upload.
 
-After upload, verify the domain in Google Search Console and submit https://ayoubmouhachtt.com/sitemap.xml. This package does not change the live site by itself.
-
-Latest refinements: compact four-card dashboard galleries on the homepage and $200K+ e-commerce case; restored orange growth invitation on every page; lime/orange accents; portrait header/footer logo and embedded-vector portrait favicon. All three Plans pages now include a plan comparison, deliverables, a personal photo, engagement steps and six FAQs. Case studies have a question/work/review framework; guides include an execution brief. Account, revenue and confidentiality claims remain unchanged.
+Upload all extracted files to apply booking changes across the site, including the homepage, plans and blogs. A separate self-contained index.html is also provided for a homepage-only update, but the full package is needed for the new case studies.
