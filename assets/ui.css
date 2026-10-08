@@ -26,3 +26,8 @@ html[lang="ar"] body,html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3,ht
 .decision-table th,.decision-table td{border-color:var(--line);color:var(--ink);text-align:start}
 .decision-table thead th{background:var(--surface)}
 @media(max-width:360px){.site-header .brand-name{max-width:85px;line-height:1.3;display:block}}
+
+/* Career link in the shared navigation. Preserve the existing mobile menu. */
+.site-nav{gap:clamp(12px,1.35vw,20px)}
+.site-nav a{white-space:nowrap}
+@media(min-width:941px) and (max-width:1180px){.header-tools .header-cta{display:none}}
