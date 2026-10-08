@@ -1,3 +1,17 @@
+SELECTED ESPRESSO POLO HERO PORTRAIT
+
+The English, French and Arabic homepages now use the exact espresso polo portrait selected and supplied by Ayoub. It is exported to WebP for website use, with no generative changes to the supplied image. The existing hero layout, portrait size rules, logo and favicon are unchanged. Earlier portrait assets remain available.
+
+Upload these four files, preserving their paths:
+- index.html
+- fr/index.html
+- ar/index.html
+- assets/hero-portrait-espresso.webp
+
+Refresh with Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows). No stylesheet replacement is required. The full ZIP contains the whole portfolio; preserve the CNAME and folder structure.
+
+The chosen portrait is 1024 x 1536 pixels with genuine transparency. WebP encoding preserves its alpha channel exactly. Only the hero image source changed in each of the three homepages; intrinsic dimensions match the previous portrait. CSS, JS, services, plans, case studies and articles are unchanged. Image and source comparisons passed; local browser preview was unavailable.
+
 COMPACT SERVICES UPDATE
 
 The services section is now a short overview: four smaller cards, one sentence and three concise outputs per service. Large diagrams, repeated guidance, extra process/context panels and duplicated booking prompts are removed. One shared booking link and a plans link remain above the cards, with a relevant case study link on each card. The layout uses four columns on desktop, two on tablet and a readable stack on narrow phones. English, French and Arabic receive the same update; the accepted hero and every other homepage section are untouched.
