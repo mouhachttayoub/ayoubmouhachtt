@@ -1,3 +1,16 @@
+CAREER TIMELINE PAGE
+
+New pages: career.html, fr/career.html and ar/career.html. They include the education, teaching, dropshipping, copywriting/content, freelance, marketing leadership and independent-store chapters supplied by Ayoub, plus blogging and Upwork/Fiverr. The layout uses a vertical timeline, chapter navigation, short takeaways, the chosen portrait and an existing work photo. It uses the existing cream, lime, orange and lavender palette with responsive layouts, dark mode and Arabic RTL.
+
+Career links are added to every header, mobile menu and footer. On each homepage, the existing experience tile now links to the career page and says “Explore my career” (localized). No extra hero row is added. The approved hero geometry, selected espresso portrait, other content and original logo/favicon are retained.
+
+Dates: 2015 for the baccalaureate; 2018 for the BA (derived from the three-year interval); around 2022 for Head of Marketing (derived from roughly four years ago). Teaching is labeled after graduation and e-commerce is labeled alongside teaching, with no unconfirmed start year. Copywriting uses a one-year-chapter label and freelancing uses an independent-work label. The supplied sequence overlaps, so exact job years, employers and institutions are not invented. The prose acknowledges overlapping projects.
+
+UPLOAD
+The full ZIP contains the entire portfolio. Upload its contents to the same GitHub paths. New files: career.html, fr/career.html, ar/career.html and assets/career.css. Updated files include all existing HTML pages (shared header/footer links), assets/ui.css and sitemap.xml. Keep the original folder structure and CNAME. For GitHub’s web uploader, split large folders into batches of no more than 100 files; 50 per batch is easier to manage. The new page is /career.html.
+
+Validation: local file/anchor targets, locale switches, metadata, structured data, shared navigation, protected image assets and unchanged page bodies are checked. Local browser preview is unavailable; no browser-rendering result is claimed.
+
 SELECTED ESPRESSO POLO HERO PORTRAIT
 
 The English, French and Arabic homepages now use the exact espresso polo portrait selected and supplied by Ayoub. It is exported to WebP for website use, with no generative changes to the supplied image. The existing hero layout, portrait size rules, logo and favicon are unchanged. Earlier portrait assets remain available.
