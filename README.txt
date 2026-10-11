@@ -1,3 +1,66 @@
+CONSULTATION PLAN UPDATE — 10 OCTOBER 2026
+
+New offer: Marketing Consultation — $50 USD for one session.
+Available on plans.html, fr/plans.html and ar/plans.html. It uses the PayPal
+payment link supplied by Ayoub and the existing Google Calendar booking link.
+The existing three partnership plans retain their own booking buttons.
+
+UPLOAD THIS UPDATE
+Extract ayoub-consultation-update.zip and upload its CONTENTS to the matching
+GitHub paths. Replace plans.html, fr/plans.html, ar/plans.html, sitemap.xml and
+README.txt. Add assets/consultation.css inside the existing assets folder.
+The update contains six files. Do not upload the ZIP itself. No deletions needed.
+The full ayoub-portfolio-seo-upgrade.zip also includes this update.
+
+CLIENT FLOW
+Clients pay with PayPal, return to the plans page, and choose a time using the
+"Already paid?" link. Both links open in new tabs so the plans page stays open.
+Clients are asked to use the same email for payment and booking. Ayoub checks
+the actual PayPal transaction before confirming the appointment. The static
+site does not verify payments, restrict calendar access, or automatically
+confirm appointments. No browser return or click is treated as payment proof.
+The consultation duration was not supplied, so no duration is advertised.
+PayPal account settings, including account-wide auto-return, are not changed.
+
+DESIGN AND VALIDATION
+The new card uses the existing cream, lime, orange, fonts and theme variables.
+Its stylesheet is loaded only by the three plans pages. The homepage, hero,
+logo, favicon, existing stylesheets and assets are unchanged. Arabic uses RTL.
+HTML, file/anchor targets, locale switches, structured data and ZIP contents
+are checked. Live PayPal checkout and a browser render were unavailable;
+no payment was made and no automatic payment verification is claimed.
+
+PREVIOUS UPDATES
+
+PORTFOLIO MESSAGE & EVIDENCE UPDATE — 9 OCTOBER 2026
+
+The homepage now leads with founders and hands-on growth support. The plans
+describe recognizable needs and useful deliverables. The case studies explain
+Ayoub’s role and distinguish portfolio totals from individual project results.
+The 34% AOV uplift was removed because the supplied dashboards do not establish
+that before-and-after comparison. The $200K+ portfolio result remains, with
+original dashboard figures, reporting windows and links to the images.
+
+Three existing guides now include personal career context and practical
+examples, in English, French and Arabic. They are featured on the home and
+blog pages. The full collection remains 110 English guides plus the existing
+French and Arabic versions of the original ten guides.
+
+UPLOAD THE UPDATE
+Use ayoub-portfolio-update-only.zip for an existing copy of this portfolio.
+Extract it and replace its contents in the same folders of your GitHub repo.
+Keep assets/, blog/, fr/ and ar/ as folders. Do not upload the ZIP itself.
+The update pack has fewer than 100 files, including this README.
+No files need to be deleted. No new testimonial or ranking claim was added.
+
+Use ayoub-portfolio-seo-upgrade.zip if you need the complete portfolio.
+It contains more than 100 files, so upload its contents in separate batches.
+
+The accepted hero structure, stylesheets, photos, logos, favicon, booking URL,
+language controls, light-mode default and dark-mode styles remain intact.
+Validation covered HTML structure, local links, anchors, metadata and assets.
+A browser render was unavailable for this update.
+
 CAREER TIMELINE PAGE
 
 New pages: career.html, fr/career.html and ar/career.html. They include the education, teaching, dropshipping, copywriting/content, freelance, marketing leadership and independent-store chapters supplied by Ayoub, plus blogging and Upwork/Fiverr. The layout uses a vertical timeline, chapter navigation, short takeaways, the chosen portrait and an existing work photo. It uses the existing cream, lime, orange and lavender palette with responsive layouts, dark mode and Arabic RTL.

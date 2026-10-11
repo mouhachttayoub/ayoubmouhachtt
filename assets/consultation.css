@@ -1,0 +1,29 @@
+/* Consultation card: isolated to the three plans pages. */
+.consultation-plan{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,.72fr);gap:42px;align-items:center;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--growth-orange);border-radius:24px;padding:32px;margin:0 0 42px;color:var(--ink)}
+.consultation-copy,.consultation-checkout{min-width:0}
+.consultation-heading{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.consultation-icon{display:grid;place-items:center;flex-shrink:0;width:46px;height:46px;border-radius:15px;background:#FFD4C4;color:#181815}
+.consultation-badge{font-size:12px;font-weight:650;line-height:1.6;background:var(--growth-lime);color:#181815;padding:6px 12px;border-radius:30px}
+.consultation-copy h2{font:800 clamp(28px,3.2vw,40px)/1.15 Manrope,sans-serif;letter-spacing:-.04em;margin:22px 0 14px;color:var(--ink)}
+.consultation-copy>p{font-size:16px;line-height:1.8;color:var(--muted);max-width:530px;margin:0 0 22px}
+.consultation-benefits{display:grid;gap:12px;list-style:none;padding:0;margin:0}
+.consultation-benefits li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.65;color:var(--ink)}
+.consultation-benefits svg{width:20px;height:20px;flex-shrink:0;color:var(--olive);margin-top:2px}
+.consultation-checkout{border:1px solid var(--line);background:var(--bg);border-radius:18px;padding:26px}
+.consultation-price{font:800 52px/1.1 Manrope,sans-serif;letter-spacing:-.05em;color:var(--ink)}
+.consultation-price span{font:500 13px/1.5 'DM Mono',monospace;letter-spacing:0}
+.consultation-fee{font-size:13px;line-height:1.6;color:var(--muted);margin:8px 0 24px}
+.consultation-step{display:block;font-size:11px;font-weight:600;line-height:1.7;color:var(--muted);margin-bottom:8px}
+.consultation-pay{display:flex;align-items:center;justify-content:center;min-height:48px;padding:13px 16px;background:var(--growth-lime);color:#181815;border:1px solid #181815;border-radius:14px;font-size:14px;font-weight:700;line-height:1.6;text-align:center}
+.consultation-pay:hover{background:#b8ee49}
+.consultation-booking{border-top:1px solid var(--line);margin-top:22px;padding-top:18px}
+.consultation-book{display:inline-block;min-height:44px;padding-block:7px;color:var(--ink);font-size:13px;font-weight:650;line-height:1.8;text-decoration:underline;text-underline-offset:4px}
+.consultation-confirm{font-size:12px;line-height:1.75;color:var(--muted);margin:8px 0 0}
+.consultation-pay:focus-visible,.consultation-book:focus-visible{outline:3px solid var(--olive);outline-offset:5px}
+.consultation-support{margin:0 0 24px}
+.consultation-support h2{font:750 24px/1.35 Manrope,sans-serif;letter-spacing:-.025em;color:var(--ink);margin:0 0 8px}
+.consultation-support p{font-size:15px;line-height:1.8;color:var(--muted);margin:0}
+html[lang=ar] .consultation-copy h2,html[lang=ar] .consultation-support h2{font-family:'Noto Sans Arabic',sans-serif;letter-spacing:0;line-height:1.6}
+html[lang=ar] .consultation-benefits{padding:0}
+@media(max-width:800px){.consultation-plan{grid-template-columns:minmax(0,1fr);gap:24px;padding:26px}.consultation-copy>p{max-width:none}.consultation-checkout{padding:24px}}
+@media(max-width:420px){.consultation-plan{padding:20px;gap:22px}.consultation-checkout{padding:20px}.consultation-copy h2{font-size:28px}.consultation-heading{gap:10px}.consultation-price{font-size:46px}}
