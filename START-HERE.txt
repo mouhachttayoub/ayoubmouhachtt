@@ -1,0 +1,46 @@
+AYOUB — HOMEPAGE + THE COMPLETE 100-ARTICLE UPDATE
+
+This pack contains exactly 100 additional English article pages.
+Keep the original 110: the complete English blog contains 210 articles.
+It also replaces the repeated-card process section with an editorial layout.
+
+UPLOAD THE CONTENTS OF ALL THREE SMALL ZIP FILES, IN THIS ORDER.
+Do not upload these ZIPs to GitHub. Extract them first.
+
+1. Extract 1-articles-01-to-50.zip.
+   Open its blog folder and select the 50 HTML files.
+   On GitHub, open your EXISTING blog folder, choose Add file > Upload files,
+   upload those 50 files and commit. Do not create blog/blog.
+
+2. Extract 2-articles-51-to-100.zip.
+   Upload its 50 HTML files inside the SAME GitHub blog folder and commit.
+
+3. Extract 3-homepage-and-blog-integration.zip (45 files total).
+   Match the folders in the ZIP to the folders already on GitHub:
+   - main-folder files (index.html, README.txt, sitemap.xml and feed.xml)
+     go in the main folder beside your existing index.html.
+   - assets files go inside the existing assets folder.
+   - blog files go inside the existing blog folder.
+   - fr/index.html goes inside fr, and fr/blog/index.html inside fr/blog.
+   - ar/index.html goes inside ar, and ar/blog/index.html inside ar/blog.
+   Replace matching names. Do not delete any existing article.
+
+The combined third batch includes BOTH the new process section and the
+article catalog/index integration. Uploading only index.html cannot add
+the 100 article pages. Uploading only the articles cannot update the blog index.
+Every individual ZIP stays below GitHub's 100-file upload limit.
+
+AFTER YOUR GITHUB PAGES DEPLOYMENT FINISHES
+Open https://ayoubmouhachtt.com/blog/100-new-growth-guides.html
+It lists all 100 additions: ten subjects, ten guides in each.
+The English blog header should show 210 guides, with a link to the new 100.
+The homepage's blog section has the same direct link.
+Hard-refresh the browser if you still see the previous design.
+
+100-article-inventory.csv lists every title, filename and URL.
+ARTICLE-COUNT-VERIFICATION.txt and verification.json document the file checks.
+These reference documents do not need uploading to the website.
+
+The articles are English. French and Arabic menus clearly label those links.
+Live deployment and indexing could not be verified from this workspace.
+The uploaded files still need to be published through your GitHub repository.

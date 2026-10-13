@@ -1,0 +1,42 @@
+RESEARCH AND EDITORIAL NOTES — 13 OCTOBER 2026
+
+Scope: 100 additional English guides for ayoubmouhachtt.com. Audited the current
+saved version23 with110 existing English guides and preserved those pages.
+These are proposed relevant search opportunities, not measured high-volume or
+low-competition keywords. The market is international English, with explicit
+Morocco context in ten guides. No country database was silently substituted.
+
+Semrush keyword and organic research returned no_api_units. No metrics were
+available, and no additional requests were retried. Search Console and GA data
+were not provided or verified. Public blog and robots retrieval were
+unavailable; the saved source files were inspected instead. No live rank,
+indexing, traffic baseline or AI citation is claimed.
+
+Current primary guidance was checked for Google generative search, helpful
+content, scaled-content policy, article markup, pagination, GA4 referrals and
+cross-domain measurement, OpenAI crawler roles, Apple app pages/subscriptions,
+Android App Links, Firebase crash-free metrics and Stripe billing behavior.
+The article inventory records the relevant linked sources. General frameworks
+and worksheets are original editorial reasoning; numerical examples are
+illustrative with stated assumptions, not newly reported client results.
+
+No keyword stuffing, fake testimonials, hidden AI instructions, fake ratings,
+invented client metrics, false translations or training-permission changes
+were added. Article preparation dates are visible; no new live publication
+date is claimed in markup. Existing RSS publication dates are preserved.
+
+The new intent map deliberately separates tasks: definitions, operating
+decisions, calculations, troubleshooting and checklists. Existing topics were
+checked before new slugs were selected. Low long-phrase overlap does not prove
+the absence of future query competition; actual Search Console evidence should
+guide later refresh or consolidation decisions.
+
+After publication, measure indexing and organic clicks by page, qualified
+consultation inquiries and actual payment/booking outcomes. Review provider-
+specific AI reports where available and distinguish sampled citations from
+referral visits. No deterministic ranking or traffic timeline is promised.
+
+The calculators run locally in the browser and do not transmit or save inputs.
+Formula tests cover the article examples and invalid inputs. Controller tests
+cover multiline output, missing fields and corrected resubmission. A browser
+render was unavailable; no visual or live checkout verification is claimed.

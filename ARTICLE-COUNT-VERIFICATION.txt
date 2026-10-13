@@ -1,0 +1,18 @@
+ARTICLE COUNT VERIFIED FROM THE ACTUAL HTML FILES — 13 OCTOBER 2026
+
+100 distinct additional article HTML pages, not titles or outlines.
+100 distinct article-body hashes. No article was counted twice.
+110 original English article pages preserved byte-for-byte.
+210 unique English article URLs in the complete catalog.
+100 direct article links in blog/100-new-growth-guides.html.
+10 subjects, with exactly 10 additions per subject.
+100/100 additions are discoverable from the homepage without JavaScript.
+100/100 additions are present in the sitemap and RSS feed.
+Both 50-article upload batches contain the actual complete HTML pages.
+Replaying all three batches over the original 110-article website exactly
+reconstructs the complete updated portfolio.
+
+This verifies the delivered files. It does not claim that those files are
+already uploaded, deployed, crawled or indexed on the live domain.
+Existing articles were not rewritten simply to manufacture another 100 URLs.
+The 100 guides were prepared with AI assistance, as disclosed on the pages.

@@ -1,0 +1,57 @@
+{
+  "additional_article_pages": 100,
+  "existing_English_articles_preserved": 110,
+  "total_English_catalog_articles": 210,
+  "new_article_unique_HTML_hashes": 100,
+  "new_article_unique_body_hashes": 100,
+  "new_articles_changed_this_fix": 0,
+  "direct_new_collection_article_links": 100,
+  "new_guides_per_subject": {
+    "strategy": 10,
+    "paid": 10,
+    "creative": 10,
+    "saas": 10,
+    "commerce": 10,
+    "measurement": 10,
+    "search": 10,
+    "lifecycle": 10,
+    "morocco": 10,
+    "apps": 10
+  },
+  "html_pages_checked": 281,
+  "all_local_links_and_anchors_valid": true,
+  "all_new_articles_reachable_without_JavaScript": true,
+  "hero_and_other_homepage_sections_preserved": true,
+  "changed_files_vs_v25": [
+    "README.txt",
+    "ar/blog/index.html",
+    "ar/index.html",
+    "assets/article-additions.css",
+    "assets/article-search.js",
+    "assets/operating-model.css",
+    "blog/100-new-growth-guides.html",
+    "blog/index.html",
+    "fr/blog/index.html",
+    "fr/index.html",
+    "index.html",
+    "sitemap.xml"
+  ],
+  "article_upload_batches": [
+    50,
+    50
+  ],
+  "integration_upload_files": 45,
+  "upload_reconstruction_exact": true,
+  "contrast": {
+    "light text": 16.2,
+    "light description": 4.7,
+    "light accent text": 5.44,
+    "dark text": 16.69,
+    "dark description": 9.2,
+    "dark accent text": 15.85,
+    "loop text": 15.17
+  },
+  "browser_render_checked": false,
+  "live_article_count_verified": false,
+  "published": false
+}
