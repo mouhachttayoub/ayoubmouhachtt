@@ -1,3 +1,91 @@
+OPERATING MODEL UPDATE — 13 OCTOBER 2026
+
+A clearer four-step section now replaces the Operating model on the homepage:
+find the bottleneck, set priorities, build and launch, review and improve.
+The copy is concise, with icons, numbered steps and a practical outcome for
+each stage. English, French and standard Arabic are included. The new styles
+use the existing cream/lime/orange palette and light/dark theme variables.
+
+UPLOAD
+Extract ayoub-operating-model-update.zip and upload its CONTENTS:
+- index.html goes in the main folder beside the existing index.html.
+- fr/index.html replaces index.html inside fr/.
+- ar/index.html replaces index.html inside ar/.
+- operating-model.css goes inside the existing assets/ folder.
+- sitemap.xml and README.txt go in the main folder.
+Six files in total. Replace matching names. Do not upload the ZIP itself.
+No files need deletion. The full portfolio ZIP also includes this change.
+
+This patch is separate from the 100-article upload kit. Keep both updates:
+the blog kit adds the articles; this patch updates the three homepages.
+The 210-guide collection, plans, hero, logo, portraits, case studies, career,
+existing stylesheets and scripts are unchanged by this patch. New CSS is
+scoped to #process. The section uses four columns on desktop, two on tablet
+and compact rows on mobile, with logical properties for Arabic RTL.
+
+Validation checks links, identifiers, language settings, theme colors and
+preservation of content outside this section. A browser render was unavailable
+and is not claimed. The patch is prepared for your GitHub upload.
+
+PREVIOUS UPDATES
+
+100 ADDITIONAL MARKETING & GROWTH GUIDES — 13 OCTOBER 2026
+
+The English notebook now has 210 guides: the original 110 plus 100 new articles.
+The existing article design, cream/lime/orange theme, logo, favicon and light/
+dark controls are retained. New examples are illustrative, not client results.
+
+UPLOAD TO AN EXISTING GITHUB PORTFOLIO
+1. Extract ayoub-100-articles-part-1.zip. Put its 50 HTML files inside blog/.
+2. Extract ayoub-100-articles-part-2.zip. Put its 50 HTML files inside blog/.
+3. Extract ayoub-100-articles-integration.zip. Replace its blog/ files inside
+   blog/ and its assets/ files inside assets/. Put feed.xml, sitemap.xml and
+   README.txt in the main folder beside index.html.
+Upload the CONTENTS, not the ZIP files. Preserve filenames and folder paths.
+Each upload pack contains fewer than 100 files. No deletion is required.
+Upload the integration pack after both article packs so all links have targets.
+
+THE COMPLETE VERSION
+ayoub-portfolio-seo-upgrade.zip contains the entire portfolio, including these
+articles and the earlier $50 consultation update. It is an alternative to the
+three small packs, not an additional required upload.
+
+WHAT CHANGED
+100 new English article pages; ten expanded topic hubs; eighteen directory
+pages; the blog landing-page counts and six featured entry points; catalog,
+dynamic search count, editorial notes, RSS and sitemap. Three embedded
+calculators are included for break-even ROAS, discount contribution and
+observed marginal ROAS, with illustrative defaults and input validation. Three embedded
+calculators are included for break-even ROAS, discount contribution and
+observed marginal ROAS, with illustrative defaults and input validation. Existing 110 articles,
+homepages, hero, plans, case studies, career, portraits and stylesheets remain
+unchanged. French/Arabic article collections remain intact. English-only
+guides point their language choices to the labeled French/Arabic blog indexes.
+
+EVIDENCE AND EXPECTATIONS
+The collection contains practical decision worksheets, calculations and
+clearly labeled illustrative examples. Current primary platform documentation
+was checked where relevant. Semrush did not return keyword metrics because
+the account lacked API units. No measured keyword volumes, keyword difficulty,
+traffic figures, client results, rankings or AI citations are invented.
+There is no guarantee of indexing, ranking or traffic from adding articles.
+The article dates identify preparation, not a claimed live publication event.
+
+AFTER UPLOAD
+Confirm the new guides and all eighteen directory pages load on the domain.
+If your Search Console property is verified, submit or recheck sitemap.xml and
+inspect representative new URLs. Review organic clicks, qualified inquiries
+and available AI-search reporting using actual property data. Analytics setup
+and search-property ownership were not changed by this update.
+
+VALIDATION
+Calculator formula and controller checks passed. Calculator formula and controller checks passed. Checks cover HTML structure, links and anchors, source data, canonical URLs,
+structured data, directories, topic coverage, catalog, RSS, sitemap, preserved
+files and ZIP contents. A browser render and live indexing verification were
+unavailable; neither is claimed. Review the final pages before publication.
+
+PREVIOUS UPDATES
+
 CONSULTATION PLAN UPDATE — 10 OCTOBER 2026
 
 New offer: Marketing Consultation — $50 USD for one session.

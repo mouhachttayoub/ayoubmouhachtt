@@ -1,0 +1,26 @@
+/* Four steps in the accepted portfolio palette. Scoped to #process only. */
+.legacy-home #process .section-title{max-width:850px;font-size:clamp(34px,4.6vw,60px);line-height:1.08;letter-spacing:-.045em}
+.legacy-home #process .operating-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;list-style:none;padding:0;margin:34px 0 22px}
+.legacy-home #process .operating-step{position:relative;display:flex;flex-direction:column;min-width:0;padding:24px;border:1px solid var(--line);border-radius:20px;background:var(--paper);color:var(--ink)}
+.legacy-home #process .operating-step:not(:last-child)::after{content:'';position:absolute;inset-inline-end:-19px;top:44px;width:18px;height:1px;background:var(--line)}
+.legacy-home #process .operating-step-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.legacy-home #process .operating-index{display:grid;place-items:center;width:40px;height:40px;flex-shrink:0;border:1px solid var(--line);border-radius:12px;background:var(--soft);color:var(--ink);font:500 12px/1 'DM Mono',monospace}
+.legacy-home #process .operating-step:first-child .operating-index{background:#C8FF5A;color:#181815;border-color:#181815}
+.legacy-home #process .operating-step:last-child .operating-index{background:#FF6B35;color:#181815;border-color:#181815}
+.legacy-home #process .operating-icon{display:grid;place-items:center;color:var(--olive)}
+.legacy-home #process .operating-icon .ui-icon{width:24px;height:24px}
+.legacy-home #process .operating-step h3{margin:0 0 13px;font:750 clamp(20px,1.8vw,25px)/1.25 Manrope,sans-serif;letter-spacing:-.03em;color:var(--ink)}
+.legacy-home #process .operating-step>p{font-size:14px;line-height:1.8;color:var(--muted);margin:0 0 22px}
+.legacy-home #process .operating-outcome{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.legacy-home #process .operating-outcome>span{display:block;font-size:10px;line-height:1.7;letter-spacing:.035em;color:var(--muted);margin-bottom:5px}
+.legacy-home #process .operating-outcome strong{display:block;font:650 12px/1.7 Inter,sans-serif;color:var(--ink)}
+.legacy-home #process .operating-review{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--soft);color:var(--ink)}
+.legacy-home #process .operating-review p{display:flex;align-items:center;gap:11px;font-size:13px;line-height:1.8;margin:0;color:var(--ink)}
+.legacy-home #process .operating-review p>span{font-size:24px;line-height:1;color:var(--olive)}
+.legacy-home #process .operating-review a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;font-weight:650;line-height:1.6;color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.legacy-home #process .operating-review a:focus-visible{outline:3px solid var(--olive);outline-offset:5px;border-radius:4px}
+html[lang=ar] .legacy-home #process .section-title,html[lang=ar] .legacy-home #process .operating-step h3{font-family:'Noto Sans Arabic',sans-serif;letter-spacing:0;line-height:1.5}
+html[lang=ar] .legacy-home #process .operating-step p,html[lang=ar] .legacy-home #process .operating-outcome strong,html[lang=ar] .legacy-home #process .operating-review a,html[lang=ar] .legacy-home #process .operating-review p{font-family:'Noto Sans Arabic',sans-serif}
+html[lang=ar] .legacy-home #process .operating-outcome>span{letter-spacing:0}
+@media(max-width:1000px){.legacy-home #process .operating-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.legacy-home #process .operating-step:nth-child(2)::after{display:none}}
+@media(max-width:580px){.legacy-home #process .section-title{font-size:35px;max-width:480px}.legacy-home #process .operating-steps{grid-template-columns:1fr;gap:12px;margin-top:26px}.legacy-home #process .operating-step{display:grid;grid-template-columns:40px minmax(0,1fr);gap:0 16px;padding:20px}.legacy-home #process .operating-step::after{display:none}.legacy-home #process .operating-step-top{grid-column:1;grid-row:1/4;flex-direction:column;justify-content:flex-start;gap:14px;margin:0}.legacy-home #process .operating-step h3{grid-column:2;font-size:21px;margin-bottom:8px}.legacy-home #process .operating-step>p{grid-column:2;font-size:14px;line-height:1.7;margin-bottom:14px}.legacy-home #process .operating-outcome{grid-column:2;padding-top:11px}.legacy-home #process .operating-outcome>span{display:none}.legacy-home #process .operating-review{gap:6px;padding:15px 18px}.legacy-home #process .operating-review p{font-size:12px}.legacy-home #process .operating-review a{font-size:12px}html[lang=ar] .legacy-home #process .section-title{font-size:32px}}
