@@ -1,0 +1,24 @@
+UPLOAD THIS UPDATE LAST
+
+There are only THREE website files to replace:
+
+index.html       -> the MAIN GitHub folder (beside plans.html)
+fr/index.html    -> index.html INSIDE your existing fr folder
+ar/index.html    -> index.html INSIDE your existing ar folder
+
+Extract this ZIP, then upload those HTML files into the matching folders.
+Do not upload the ZIP itself or create index.html folders.
+The CSS and JavaScript for this section are already inside these HTML files.
+No separate assets upload is needed for this process section.
+
+This patch preserves the October 13 article links. Keep the article files
+and blog assets uploaded from the 100-article pack. Upload this patch AFTER
+an older article integration pack so that an old homepage cannot replace it.
+
+After GitHub Pages finishes deployment, refresh the homepage.
+The new heading is: "Let’s make the next move clear."
+The section has ONE green panel with four selectable stages:
+Understand / Plan / Build / Improve.
+The previous "A clear plan. Then we get to work." heading is removed.
+
+These are prepared files; the live deployment has not been verified.
